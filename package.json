@@ -1,0 +1,23 @@
+{
+  "name": "rtdwebsite",
+  "version": "1.0.0",
+  "description": "Website for RTD Bunching Project",
+  "main": "scripts.js",
+  "dependencies": {
+    "rtd-realtime": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siddharthbharthulwar/rtdwebsite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siddharthbharthulwar/rtdwebsite/issues"
+  },
+  "homepage": "https://github.com/siddharthbharthulwar/rtdwebsite#readme"
+}
