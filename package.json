@@ -4,7 +4,7 @@
   "description": "Website for RTD Bunching Project",
   "main": "scripts.js",
   "dependencies": {
-    "mysql": "^2.18.1",
+    "mongodb": "^3.5.9",
     "rtd-realtime": "^1.1.0"
   },
   "devDependencies": {},

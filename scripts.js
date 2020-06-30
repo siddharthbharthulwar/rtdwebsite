@@ -90,11 +90,10 @@ function checkMap(map) {
                     var busTwo = buses[j];
                     
                     var distance = haversine([busOne.Position.latitude, busOne.Position.longitude], [busTwo.Position.latitude, busTwo.Position.longitude]);
-                    if (distance < 1000){
+                    if (distance < 1000000){
                         
                         var key = buses[i].identifier.concat(buses[i].Position.bearing.toString());
                         key.concat(buses[j].Position.bearing.toString());
-                        console.log(typeof key);
                         bunchinginstances.set(key, new BunchingInstance(buses[i].identifier, buses[i].Position, buses[j].Position));
 
                     }
