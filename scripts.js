@@ -25,6 +25,26 @@ class BusInstance {
     }
 }
 
+class BunchingInstance {
+
+    constructor(identifier, Position1, Position2) {
+
+        this.identifier = identifier;
+        this.position1 = Position1;
+        this.position2 = Position2;
+        this.midLat = midpoint(Position1, Position2)[0];
+        this.midLon = midpoint(Position1, Position2)[1];
+
+    }
+
+}
+
+function midpoint(Position1, Position2) {
+
+    var temp = [(Position1.latitude + Position2.latitude) / 2, (Position1.longitude + Position2.longitude)  / 2];
+    return temp;
+}
+
 const haversine = ([lat1, lon1], [lat2, lon2]) => {
     // Math lib function names
     const [pi, asin, sin, cos, sqrt, pow, round] = [
@@ -55,7 +75,7 @@ const haversine = ([lat1, lon1], [lat2, lon2]) => {
 
 function checkMap(map) {
 
-    var bunchinginstances = [];
+    var bunchinginstances = new Map();
 
     for (let [k, v] of map) {
 
@@ -70,20 +90,21 @@ function checkMap(map) {
                     var busTwo = buses[j];
                     
                     var distance = haversine([busOne.Position.latitude, busOne.Position.longitude], [busTwo.Position.latitude, busTwo.Position.longitude]);
-                    bunchinginstances.push(distance);
+                    if (distance < 1000){
+                        
+                        var key = buses[i].identifier.concat(buses[i].Position.bearing.toString());
+                        key.concat(buses[j].Position.bearing.toString());
+                        console.log(typeof key);
+                        bunchinginstances.set(key, new BunchingInstance(buses[i].identifier, buses[i].Position, buses[j].Position));
+
+                    }
                 }
             }
         }
 
     }
 
-    for (var k = 0; k < bunchinginstances.length; k++){
-
-        if (bunchinginstances[k] < 1000){
-
-            console.log(bunchinginstances[k]);
-        }
-    }
+    console.log(bunchinginstances);
 }
 
 realtime.VehiclePositions.load( (err,feed) => {
