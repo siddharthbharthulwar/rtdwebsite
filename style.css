@@ -1,0 +1,30 @@
+body {
+
+    font-family: 'Muli', sans-serif;
+    background: rgba(242, 242, 242, .6);
+    margin: 20px;
+}
+
+#centered {
+
+    width: 70%;
+    margin: 0 auto;
+    
+}
+
+.titl {
+
+    margin: 17px;
+}
+
+.bunchingImage{
+
+    max-width: 25%;
+    max-height: 25%;
+    margin: 20px;
+}
+
+.mainText {
+
+    margin: 20px;
+}

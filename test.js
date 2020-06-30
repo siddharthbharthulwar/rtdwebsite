@@ -1,8 +1,5 @@
-var realtime = require('rtd-realtime');
+var data = [{type: 'densitymapbox', lon: [10, 20, 30], lat: [15, 25, 35], z: [1, 3, 2]}];
 
-realtime.VehiclePositions.write( (err,feed) => {
-    // 'err' will be supplied if an error occured in the request or decoding of the feed,
-    // otherwise 'err' will be null
-    // 'feed' will be supplied as decode json representation of a GTFS-RT feed
-    // A JSON file of the feed will be written to your file system
-});
+var layout = {width: 600, height: 400, mapbox: {style: 'stamen-terrain'}};
+
+Plotly.newPlot('myDiv', data, layout);

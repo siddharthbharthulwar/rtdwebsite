@@ -60,7 +60,7 @@ const haversine = ([lat1, lon1], [lat2, lon2]) => {
         dLon = rlon2 - rlon1,
         radius = 20902000; // feet
 
-    // km
+    // feet
     return round(
         radius * 2 * asin(
             sqrt(
